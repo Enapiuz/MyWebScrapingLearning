@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HabraParser</title>
+    <style>
+        .main-table {
+            border: 1px;
+            border-collapse: collapse;
+        }
+    </style>
+    <script src="/static/js/d3.js"></script>
+</head>
+<body>
+    <h1>HabraParser</h1>
+    <table border="1" class="main-table">
+        <tr>
+            <td>Title</td>
+            <td>Score</td>
+            <td>Comments</td>
+            <td>Favorites</td>
+            <td>Author</td>
+        </tr>
+        {% for post in posts %}
+            <tr>
+                <td><a target="_blank" href="{{ post.href }}">{{ post.title }}</a></td>
+                <td>{{ post.score }}</td>
+                <td>{{ post.comments }}</td>
+                <td>{{ post.favs }}</td>
+                <td>{{ post.author }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div id="chart"></div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
